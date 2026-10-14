@@ -1,0 +1,1487 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikah Connect | Halal Matches, Happy Futures</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --maroon: #750e2b;
+    --dark-maroon: #470c1d;
+    --gold: #d9a64c;
+    --cream: #fffaf5;
+    --rose: #f9eceb;
+    --ink: #30262a;
+    --muted: #766d70;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3, .brand-name {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section-padding {
+    padding: 75px 0;
+}
+
+.section-label {
+    color: var(--maroon);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.section-title {
+    color: var(--dark-maroon);
+    font-size: clamp(28px, 3vw, 39px);
+    font-weight: 700;
+    margin: 10px 0 15px;
+}
+
+.btn-maroon {
+    background: var(--maroon);
+    color: white;
+    border: 1px solid var(--maroon);
+    border-radius: 6px;
+    padding: 11px 22px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.btn-maroon:hover {
+    background: var(--dark-maroon);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline-maroon {
+    border: 1px solid var(--maroon);
+    color: var(--maroon);
+    background: transparent;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 700;
+}
+
+.btn-outline-maroon:hover {
+    background: var(--maroon);
+    color: white;
+}
+
+.navbar {
+    background: var(--dark-maroon);
+    padding: 13px 0;
+    box-shadow: 0 3px 15px #00000018;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white !important;
+}
+
+.brand-icon {
+    color: var(--gold);
+    font-size: 32px;
+}
+
+.brand-name {
+    display: block;
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    display: block;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: .6px;
+}
+
+.navbar .nav-link {
+    color: #f7e8e9;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 8px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--gold);
+}
+
+.nav-login {
+    border: 1px solid #fff9;
+    color: white;
+    border-radius: 7px;
+    padding: 9px 20px;
+    background: transparent;
+}
+
+.nav-register {
+    background: var(--gold);
+    color: var(--dark-maroon);
+    border: none;
+    border-radius: 7px;
+    padding: 10px 22px;
+    font-weight: 700;
+}
+
+.navbar-toggler {
+    border-color: #ffffff88;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Hero */
+
+.hero {
+    position: relative;
+    min-height: 490px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Image from HTML */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Light overlay for readable text */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,248,239,0.98) 0%,
+        rgba(255,248,239,0.93) 32%,
+        rgba(255,248,239,0.25) 70%
+    );
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-content {
+    padding: 85px 0 110px;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 5.5vw, 74px);
+    font-weight: 700;
+    line-height: 1.13;
+    color: #35252a;
+    margin: 17px 0;
+}
+
+.hero h1 em {
+    color: var(--maroon);
+}
+
+.hero-description {
+    font-size: 17px;
+    color: #554b4d;
+    max-width: 510px;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 27px;
+    color: #59484d;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.hero-badges i {
+    color: var(--maroon);
+    margin-right: 5px;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+    margin-top: -58px;
+    z-index: 5;
+}
+
+.search-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 13px;
+    box-shadow: 0 12px 40px #4b19201a;
+    border: 1px solid #f2e9e5;
+}
+
+.search-panel label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-select, .form-control {
+    border: 1px solid #e5dedd;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 13px;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: var(--maroon);
+    box-shadow: 0 0 0 3px #750e2b15;
+}
+
+/* Features */
+.features {
+    padding: 65px 0;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 12px;
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: var(--maroon);
+    font-size: 23px;
+    margin-bottom: 17px;
+}
+
+.feature-item h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.feature-item p {
+    font-size: 12px;
+    color: var(--muted);
+    max-width: 180px;
+    margin: 10px auto;
+    line-height: 1.7;
+}
+
+/* Profiles */
+.profiles-section {
+    background: #fffdfa;
+}
+
+.profile-card {
+    background: white;
+    border: 1px solid #eae1df;
+    border-radius: 10px;
+    padding: 10px;
+    height: 100%;
+    transition: .3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px #4c20201a;
+}
+
+.profile-image {
+    height: 185px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #f4e7e3;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.verified {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #d8f8df;
+    color: #19733a;
+    padding: 5px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+.favorite {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: #ffffffc9;
+    border-radius: 50%;
+    color: var(--maroon);
+}
+
+.favorite.saved {
+    background: var(--maroon);
+    color: white;
+}
+
+.profile-details {
+    padding: 12px 3px 2px;
+}
+
+.profile-details h5 {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.profile-details h5 span {
+    color: var(--gold);
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.profile-details p {
+    color: #696063;
+    font-size: 11px;
+    margin-bottom: 8px;
+}
+
+.profile-details p i {
+    width: 17px;
+    color: var(--maroon);
+}
+
+.profile-details .btn {
+    width: 100%;
+    font-size: 12px;
+    padding: 9px;
+    margin-top: 6px;
+}
+
+/* Plans */
+.plans-section {
+    background: linear-gradient(135deg, #fcf0ed, #fffaf7);
+}
+
+.plan-card {
+    position: relative;
+    background: white;
+    border: 1px solid #ecdfdc;
+    border-radius: 10px;
+    padding: 25px 20px;
+    height: 100%;
+    transition: .3s;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--maroon);
+}
+
+.plan-card.popular-plan {
+    border: 2px solid var(--gold);
+}
+
+.popular-label {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.plan-card h5 {
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.plan-price {
+    color: var(--maroon);
+    font-size: 27px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.plan-price small {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.plan-card ul {
+    padding: 0;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.plan-card li {
+    font-size: 12px;
+    color: #5b5153;
+    margin-bottom: 13px;
+}
+
+.plan-card li i {
+    color: #287548;
+    margin-right: 7px;
+}
+
+.plan-card .btn {
+    width: 100%;
+    font-size: 12px;
+}
+
+/* Testimonials */
+.story-card {
+    display: flex;
+    gap: 14px;
+    background: white;
+    border: 1px solid #eee6e2;
+    border-radius: 9px;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 0 5px 15px #00000008;
+}
+
+.story-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.story-card p {
+    font-size: 12px;
+    color: #62595c;
+    line-height: 1.7;
+}
+
+.story-card h6 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.stars {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+/* Footer */
+.footer {
+    background: var(--dark-maroon);
+    color: white;
+    padding: 35px 0 15px;
+}
+
+.footer-links a {
+    color: #f1dfe1;
+    font-size: 12px;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-social a {
+    color: white;
+    margin-left: 15px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ffffff25;
+    padding-top: 16px;
+    margin-top: 25px;
+    font-size: 11px;
+    color: #e6cdd2;
+}
+
+/* Modal */
+.modal-content {
+    border: none;
+    border-radius: 13px;
+}
+
+.modal-header {
+    background: var(--dark-maroon);
+    color: white;
+}
+
+.modal-header .btn-close {
+    filter: invert(1);
+}
+
+.demo-note {
+    background: #fff3df;
+    color: #775123;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+#toastMessage {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-maroon);
+    color: white;
+    padding: 13px 24px;
+    border-radius: 8px;
+    z-index: 2000;
+    display: none;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 6px 20px #0003;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        padding: 20px 0;
+    }
+
+    .navbar .nav-link {
+        margin: 5px 0;
+    }
+
+    .hero {
+        min-height: 440px;
+    }
+
+    .hero-content {
+        padding: 85px 0 105px;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        background:
+            linear-gradient(rgba(255,248,239,.89),
+                            rgba(255,248,239,.85)),
+            url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80")
+            center/cover;
+    }
+
+    .hero h1 {
+        font-size: 47px;
+    }
+
+    .hero-content {
+        padding: 75px 0 115px;
+    }
+
+    .hero-badges {
+        gap: 12px;
+        font-size: 10px;
+    }
+
+    .search-panel {
+        padding: 20px;
+    }
+
+    .features {
+        padding: 40px 0;
+    }
+
+    .profile-image {
+        height: 210px;
+    }
+
+    .footer-links a {
+        display: inline-block;
+        margin: 8px;
+    }
+
+    .footer-social {
+        margin-top: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+<div class="container">
+
+<a href="#home" class="navbar-brand">
+    <i class="fa-regular fa-heart brand-icon"></i>
+    <span>
+        <span class="brand-name">Nikah Connect</span>
+        <span class="brand-subtitle">Halal Matches • Happy Futures</span>
+    </span>
+</a>
+
+<button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarMenu"
+        aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profiles">Profiles</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#membership">Membership</a></li>
+        <li class="nav-item"><a class="nav-link" href="#stories">Stories</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <button class="nav-login" data-bs-toggle="modal"
+                data-bs-target="#loginModal">Login</button>
+        <button class="nav-register" data-bs-toggle="modal"
+                data-bs-target="#registerModal">Register</button>
+    </div>
+</div>
+
+</div>
+</nav>
+
+
+<section id="home" class="hero">
+
+    <!-- Hero Background Image -->
+    <img
+        src="images/nikahbanner.jpg"
+        alt="Nikah Connect wedding banner"
+        class="hero-bg">
+
+    <div class="container">
+        <div class="hero-content">
+            <span class="section-label">
+                Welcome to Nikah Connect
+            </span>
+
+            <h1>Find Your<br>
+                <em>Life Partner</em>
+            </h1>
+
+            <p class="hero-description">
+                A matrimonial platform concept for a halal
+                and happy future.
+            </p>
+
+            <div class="hero-badges">
+                <span>Profile Verification</span>
+                <span>Privacy Focused</span>
+                <span>Halal Matrimony</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Search -->
+<div class="container search-container">
+<form class="search-panel" id="searchForm">
+<div class="row g-3 align-items-end">
+
+    <div class="col-md-6 col-lg-2">
+        <label for="userType">I am a</label>
+        <select id="userType" class="form-select">
+            <option value="bride">Bride</option>
+            <option value="groom">Groom</option>
+        </select>
+    </div>
+
+    <div class="col-md-6 col-lg-2">
+        <label for="lookingFor">Looking for</label>
+        <select id="lookingFor" class="form-select">
+            <option value="groom">Groom</option>
+            <option value="bride">Bride</option>
+            <option value="all">All Profiles</option>
+        </select>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <label>Age Range</label>
+        <div class="d-flex gap-2">
+            <select id="minAge" class="form-select" aria-label="Minimum age">
+                <option value="21">21</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="35">35</option>
+            </select>
+            <select id="maxAge" class="form-select" aria-label="Maximum age">
+                <option value="35">35</option>
+                <option value="40">40</option>
+                <option value="45">45</option>
+                <option value="60">60</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <label for="location">Location</label>
+        <select id="location" class="form-select">
+            <option value="all">Any Location</option>
+            <option value="kozhikode">Kozhikode</option>
+            <option value="malappuram">Malappuram</option>
+            <option value="kannur">Kannur</option>
+            <option value="thrissur">Thrissur</option>
+        </select>
+    </div>
+
+    <div class="col-lg-2">
+        <button type="submit" class="btn btn-maroon w-100">
+            <i class="fa-solid fa-magnifying-glass me-1"></i>
+            Search
+        </button>
+    </div>
+
+</div>
+</form>
+</div>
+
+<!-- Features -->
+<section id="about" class="features">
+<div class="container">
+<div class="row g-4 justify-content-center">
+
+    <div class="col-6 col-md-4 col-lg">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fa-regular fa-heart"></i></div>
+            <h5>Verified Profiles</h5>
+            <p>Profile verification features designed for your safety.</p>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h5>Privacy & Security</h5>
+            <p>Privacy-first account and profile management concept.</p>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+            <h5>Smart Matching</h5>
+            <p>Find profiles using age and location preferences.</p>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+            <h5>Premium Support</h5>
+            <p>Explore different membership options.</p>
+        </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+            <h5>Halal Matrimony</h5>
+            <p>A platform concept inspired by Islamic family values.</p>
+        </div>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- Profiles -->
+<section id="profiles" class="profiles-section section-padding">
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+    <div>
+        <span class="section-label">Featured Profiles</span>
+        <h2 class="section-title mb-0">Popular Matches</h2>
+    </div>
+    <button class="btn btn-outline-maroon" id="showAll">
+        View All Profiles <i class="fa-solid fa-arrow-right"></i>
+    </button>
+</div>
+
+<div class="row g-3" id="profileList"></div>
+
+<p id="noProfiles" class="text-center py-4" hidden>
+    No profiles match your search. Try changing the filters.
+</p>
+
+</div>
+</section>
+
+<!-- Membership -->
+<section id="membership" class="plans-section section-padding">
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+    <div>
+        <span class="section-label">Choose Your Plan</span>
+        <h2 class="section-title">Membership Plans</h2>
+        <p class="text-secondary small mb-0">
+            Sample plans for this portfolio website.
+        </p>
+    </div>
+    <a href="#planCards" class="btn btn-outline-maroon">Compare Plans →</a>
+</div>
+
+<div class="row g-4" id="planCards">
+
+    <div class="col-md-6 col-lg-3">
+        <div class="plan-card">
+            <h5>Free Plan</h5>
+            <div class="plan-price">₹0 <small>/ Lifetime</small></div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> Create Profile</li>
+                <li><i class="fa-solid fa-check"></i> Browse Profiles</li>
+                <li><i class="fa-solid fa-check"></i> Limited Matches</li>
+            </ul>
+            <button class="btn btn-outline-maroon choose-plan"
+                    data-plan="Free">Get Started</button>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="plan-card popular-plan">
+            <span class="popular-label">Most Popular</span>
+            <h5>Standard Plan</h5>
+            <div class="plan-price">₹999 <small>/ 3 Months</small></div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> Unlimited Matches</li>
+                <li><i class="fa-solid fa-check"></i> View Contact Details</li>
+                <li><i class="fa-solid fa-check"></i> Priority Support</li>
+            </ul>
+            <button class="btn btn-maroon choose-plan"
+                    data-plan="Standard">Choose Plan</button>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="plan-card">
+            <h5>Premium Plan</h5>
+            <div class="plan-price">₹1,999 <small>/ 6 Months</small></div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> Unlimited Matches</li>
+                <li><i class="fa-solid fa-check"></i> View Contact Details</li>
+                <li><i class="fa-solid fa-check"></i> Profile Boost</li>
+            </ul>
+            <button class="btn btn-outline-maroon choose-plan"
+                    data-plan="Premium">Choose Plan</button>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="plan-card">
+            <h5>VIP Plan</h5>
+            <div class="plan-price">₹3,499 <small>/ 12 Months</small></div>
+            <ul>
+                <li><i class="fa-solid fa-check"></i> All Premium Features</li>
+                <li><i class="fa-solid fa-check"></i> Featured Profile</li>
+                <li><i class="fa-solid fa-check"></i> Dedicated Manager</li>
+            </ul>
+            <button class="btn btn-outline-maroon choose-plan"
+                    data-plan="VIP">Choose Plan</button>
+        </div>
+    </div>
+
+</div>
+</div>
+</section>
+
+<!-- Success Stories -->
+<section id="stories" class="section-padding">
+<div class="container">
+
+<span class="section-label">What Our Members Say</span>
+<h2 class="section-title mb-4">Success Stories</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="story-card">
+            <img class="story-avatar"
+                 src="images/pr 1.jpg"
+                 alt="Illustrative member portrait">
+            <div>
+                <p>"A beautiful platform concept that makes
+                the matching process feel simple and welcoming."</p>
+                <h6>Ayesha F.</h6>
+                <small class="text-secondary">Kozhikode</small>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="story-card">
+            <img class="story-avatar"
+                 src="images/pr4.jpg"
+                 alt="Illustrative member portrait">
+            <div>
+                <p>"I like the clean interface, profile search
+                and easy-to-understand membership options."</p>
+                <h6>Rashid K.</h6>
+                <small class="text-secondary">Malappuram</small>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="story-card">
+            <img class="story-avatar"
+                 src="images/pr2.jpg"
+                 alt="Illustrative member portrait">
+            <div>
+                <p>"The elegant design and simple navigation
+                make this matrimonial demo easy to explore."</p>
+                <h6>Safiya N.</h6>
+                <small class="text-secondary">Thrissur</small>
+                <div class="stars">★★★★★</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<p class="text-secondary small mt-3">
+    These are fictional testimonials created for demonstration.
+</p>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="footer">
+<div class="container">
+
+<div class="row align-items-center gy-4">
+    <div class="col-lg-4">
+        <a href="#home" class="navbar-brand">
+            <i class="fa-regular fa-heart brand-icon"></i>
+            <span>
+                <span class="brand-name">Nikah Connect</span>
+                <span class="brand-subtitle">Halal Matches • Happy Futures</span>
+            </span>
+        </a>
+    </div>
+
+    <div class="col-lg-5 text-lg-center footer-links">
+        <a href="#home">Home</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#about">About</a>
+        <a href="#membership">Membership</a>
+        <a href="#stories">Stories</a>
+    </div>
+
+    <div class="col-lg-3 text-lg-end footer-social">
+        <a href="#contact" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#contact" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#contact" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+</div>
+
+<div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
+    <span>© <span id="year"></span> Nikah Connect. Portfolio Demo.</span>
+    <span>Faith • Family • Forever</span>
+</div>
+
+</div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+
+    <div class="modal-header">
+        <h5 class="modal-title">Welcome Back</h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="modal-body p-4">
+        <form id="loginForm">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control mb-3"
+                   id="loginEmail" required>
+
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control mb-3"
+                   id="loginPassword" minlength="6" required>
+
+            <button type="submit" class="btn btn-maroon w-100">
+                Login
+            </button>
+        </form>
+        <div class="demo-note">
+            Demo only. Login does not connect to a server.
+            Do not enter real passwords.
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+
+    <div class="modal-header">
+        <h5 class="modal-title">Create Your Profile</h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="modal-body p-4">
+        <form id="registerForm">
+
+            <label for="regName" class="form-label">Full Name</label>
+            <input type="text" class="form-control mb-3"
+                   id="regName" required>
+
+            <label for="regEmail" class="form-label">Email</label>
+            <input type="email" class="form-control mb-3"
+                   id="regEmail" required>
+
+            <label for="regAge" class="form-label">Age (21+)</label>
+            <input type="number" class="form-control mb-3"
+                   id="regAge" min="21" max="100" required>
+
+            <label for="regType" class="form-label">Profile Type</label>
+            <select class="form-select mb-3" id="regType" required>
+                <option value="">Select Profile</option>
+                <option>Bride</option>
+                <option>Groom</option>
+            </select>
+
+            <button type="submit" class="btn btn-maroon w-100">
+                Create Demo Profile
+            </button>
+        </form>
+
+        <div class="demo-note">
+            This is a portfolio demonstration.
+            Registration information is not saved or sent.
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+
+<!-- Profile Details Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+
+    <div class="modal-header">
+        <h5 class="modal-title">Profile Details</h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+
+    <div class="modal-body p-4" id="profileModalBody"></div>
+
+</div>
+</div>
+</div>
+
+<div id="toastMessage" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// All profiles are fictional demonstration data.
+const profiles = [
+    {
+        id: 1,
+        name: "Ayesha",
+        age: 24,
+        type: "bride",
+        job: "Doctor",
+        location: "Kozhikode",
+        status: "Never Married",
+        height: "5.4 ft",
+        sect: "Sunni",
+        image: "images/aysha.jpg"
+    },
+    {
+        id: 2,
+        name: "Muhammad",
+        age: 28,
+        type: "groom",
+        job: "Software Engineer",
+        location: "Kozhikode",
+        status: "Never Married",
+        height: "5.8 ft",
+        sect: "Sunni",
+        image:"images/muhammad.jpg"
+    },
+    {
+        id: 3,
+        name: "Fathima",
+        age: 26,
+        type: "bride",
+        job: "Teacher",
+        location: "Malappuram",
+        status: "Never Married",
+        height: "5.2 ft",
+        sect: "Sunni",
+        image: "images/fathima.jpg"
+    },
+    {
+        id: 4,
+        name: "Rashid",
+        age: 30,
+        type: "groom",
+        job: "Business Owner",
+        location: "Kannur",
+        status: "Never Married",
+        height: "5.10 ft",
+        sect: "Sunni",
+        image: "images/Rashid.jpg"
+    },
+    {
+        id: 5,
+        name: "Safiya",
+        age: 27,
+        type: "bride",
+        job: "Nurse",
+        location: "Thrissur",
+        status: "Never Married",
+        height: "5.3 ft",
+        sect: "Sunni",
+        image: "images/safiya.jpg"
+    }
+];
+
+const favorites = new Set();
+const profileList = document.getElementById("profileList");
+let toastTimer;
+
+function showToast(message) {
+    const toast = document.getElementById("toastMessage");
+    toast.textContent = message;
+    toast.style.display = "block";
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.style.display = "none";
+    }, 3200);
+}
+
+function renderProfiles(data) {
+    profileList.innerHTML = "";
+
+    document.getElementById("noProfiles").hidden =
+        data.length !== 0;
+
+    data.forEach(profile => {
+        const column = document.createElement("div");
+        column.className = "col-6 col-md-4 col-lg";
+
+        column.innerHTML = `
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="${profile.image}"
+                         alt="Illustrative portrait for ${profile.name}"
+                         loading="lazy">
+
+                    <span class="verified">
+                        <i class="fa-solid fa-check-circle"></i>
+                        Demo
+                    </span>
+
+                    <button class="favorite ${favorites.has(profile.id) ? 'saved' : ''}"
+                            data-id="${profile.id}"
+                            aria-label="Toggle favorite">
+                        <i class="${favorites.has(profile.id) ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                    </button>
+                </div>
+
+                <div class="profile-details">
+                    <h5>${profile.name}
+                        <span>◉ ${profile.age}</span>
+                    </h5>
+
+                    <p><i class="fa-solid fa-briefcase"></i>
+                        ${profile.job} · ${profile.location}
+                    </p>
+
+                    <p><i class="fa-regular fa-circle-check"></i>
+                        ${profile.status}
+                    </p>
+
+                    <p><i class="fa-solid fa-user"></i>
+                        ${profile.height} · ${profile.sect}
+                    </p>
+
+                    <button class="btn btn-maroon view-profile"
+                            data-id="${profile.id}">
+                        View Profile
+                    </button>
+                </div>
+            </div>
+        `;
+
+        profileList.appendChild(column);
+    });
+}
+
+// Search profiles
+document.getElementById("searchForm")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const type = document.getElementById("lookingFor").value;
+        const minAge = Number(document.getElementById("minAge").value);
+        const maxAge = Number(document.getElementById("maxAge").value);
+        const location = document.getElementById("location").value;
+
+        if (minAge > maxAge) {
+            showToast("Minimum age cannot exceed maximum age.");
+            return;
+        }
+
+        const results = profiles.filter(profile => {
+            const matchesType =
+                type === "all" || profile.type === type;
+
+            const matchesAge =
+                profile.age >= minAge && profile.age <= maxAge;
+
+            const matchesLocation =
+                location === "all" ||
+                profile.location.toLowerCase() === location;
+
+            return matchesType && matchesAge && matchesLocation;
+        });
+
+        renderProfiles(results);
+
+        document.getElementById("profiles")
+            .scrollIntoView({ behavior: "smooth" });
+
+        showToast(results.length + " demo profiles found");
+    });
+
+// Automatically update preference
+document.getElementById("userType")
+    .addEventListener("change", function() {
+        document.getElementById("lookingFor").value =
+            this.value === "bride" ? "groom" : "bride";
+    });
+
+// Show all profiles
+document.getElementById("showAll")
+    .addEventListener("click", function() {
+        document.getElementById("location").value = "all";
+        document.getElementById("lookingFor").value = "all";
+        document.getElementById("minAge").value = "21";
+        document.getElementById("maxAge").value = "60";
+
+        renderProfiles(profiles);
+        showToast("Showing all demo profiles");
+    });
+
+// Profile card actions
+profileList.addEventListener("click", function(event) {
+    const favoriteButton = event.target.closest(".favorite");
+
+    if (favoriteButton) {
+        const id = Number(favoriteButton.dataset.id);
+
+        if (favorites.has(id)) {
+            favorites.delete(id);
+            showToast("Removed from favorites");
+        } else {
+            favorites.add(id);
+            showToast("Added to favorites");
+        }
+
+        favoriteButton.classList.toggle(
+            "saved", favorites.has(id)
+        );
+
+        favoriteButton.querySelector("i").className =
+            (favorites.has(id) ? "fa-solid" : "fa-regular")
+            + " fa-heart";
+
+        return;
+    }
+
+    const viewButton = event.target.closest(".view-profile");
+
+    if (viewButton) {
+        const id = Number(viewButton.dataset.id);
+        const profile = profiles.find(p => p.id === id);
+
+        if (!profile) return;
+
+        document.getElementById("profileModalBody").innerHTML = `
+            <div class="text-center">
+                <img src="${profile.image}"
+                     alt="Illustrative profile portrait"
+                     style="width:130px;height:130px;object-fit:cover;border-radius:50%">
+                <h3 class="mt-3">${profile.name}, ${profile.age}</h3>
+                <p>${profile.job} · ${profile.location}</p>
+            </div>
+
+            <hr>
+
+            <p><strong>Profile Type:</strong> ${profile.type}</p>
+            <p><strong>Marital Status:</strong> ${profile.status}</p>
+            <p><strong>Height:</strong> ${profile.height}</p>
+            <p><strong>Community:</strong> ${profile.sect}</p>
+
+            <div class="demo-note">
+                Fictional profile for portfolio demonstration.
+                No real member details are available.
+            </div>
+
+            <button class="btn btn-maroon w-100 mt-3"
+                    id="interestButton">
+                <i class="fa-regular fa-heart"></i>
+                Send Interest (Demo)
+            </button>
+        `;
+
+        new bootstrap.Modal(
+            document.getElementById("profileModal")
+        ).show();
+    }
+});
+
+// Send interest demo
+document.getElementById("profileModalBody")
+    .addEventListener("click", function(event) {
+        if (event.target.closest("#interestButton")) {
+            showToast("Demo interest selected. Nothing was sent.");
+        }
+    });
+
+// Membership buttons
+document.querySelectorAll(".choose-plan")
+    .forEach(button => {
+        button.addEventListener("click", function() {
+            const plan = this.dataset.plan;
+            showToast(plan + " plan selected — demo only.");
+        });
+    });
+
+// Login form
+document.getElementById("loginForm")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        showToast("Demo login only. No account was accessed.");
+        this.reset();
+
+        bootstrap.Modal.getInstance(
+            document.getElementById("loginModal")
+        ).hide();
+    });
+
+// Registration form
+document.getElementById("registerForm")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const age = Number(
+            document.getElementById("regAge").value
+        );
+
+        if (age < 21) {
+            showToast("This matrimonial demo is for adults aged 21+.");
+            return;
+        }
+
+        showToast("Demo registration completed. No data was saved.");
+        this.reset();
+
+        bootstrap.Modal.getInstance(
+            document.getElementById("registerModal")
+        ).hide();
+    });
+
+// Close mobile navigation
+document.querySelectorAll(".navbar-nav .nav-link")
+    .forEach(link => {
+        link.addEventListener("click", function() {
+            const menu = document.getElementById("navbarMenu");
+
+            if (menu.classList.contains("show")) {
+                bootstrap.Collapse.getOrCreateInstance(menu).hide();
+            }
+        });
+    });
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+renderProfiles(profiles);
+</script>
+
+</body>
+</html>
